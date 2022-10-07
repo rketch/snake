@@ -1,6 +1,6 @@
 #include "renderer.h"
-#include <iostream>
-#include <string>
+
+
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -78,4 +78,22 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
 void Renderer::UpdateWindowTitle(int score, int fps) {
   std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
+}
+
+void Renderer::RenderBMP(std::string path_to_image){
+  // Thank you https://lazyfoo.net/tutorials/SDL/02_getting_an_image_on_the_screen/index.php
+    
+    // load image
+    SDL_Surface* media_bmp = NULL;
+    media_bmp = SDL_LoadBMP(path_to_image.c_str());
+  	if(media_bmp == NULL){
+  		std::cerr << "SDL can't load image \n";
+    	std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  	}
+    else{
+      // display image
+      sdl_surface = SDL_GetWindowSurface(sdl_window);
+      SDL_BlitSurface( media_bmp, NULL, sdl_surface, NULL );
+      SDL_UpdateWindowSurface( sdl_window );
+  }
 }

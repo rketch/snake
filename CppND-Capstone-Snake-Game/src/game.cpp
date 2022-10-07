@@ -17,13 +17,12 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_end;
   Uint32 frame_duration;
   int frame_count = 0;
-  bool running = true;
 
-  while (running) {
+  while (_running) {
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
+    controller.HandleInput(_running, snake);
     Update();
     renderer.Render(snake, food);
 
@@ -66,7 +65,9 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
-  if (!snake.alive) return;
+  if (!snake.alive) {
+    _running = false;
+    return;}
 
   snake.Update();
 

@@ -3,13 +3,21 @@
 
 
 #include <string>
+#include "renderer.h"
+#include "controller.h"
 
-class Splash {
+class Splash{
   /* */
-  public:
-  	void Display(std::string filepath);
+  public: 
+  Splash(); // constructor
+  ~Splash(){
+    // Destructor
+  }
+  	void Display(Controller const &controller, Renderer &renderer);
+  	void SetFilepath(std::string filepath);
+  	std::string GetFilepath();
   private:
-  	
-};
+    std::string _filepath;
+    };
 
 #endif

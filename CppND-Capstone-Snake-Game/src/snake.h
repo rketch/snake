@@ -3,7 +3,6 @@
 
 #include <vector>
 #include "SDL.h"
-#include "splash.h"
 
 class Snake {
  public:
