@@ -12,10 +12,10 @@ My changes are as follows:
 
 ## File and Class Diagram
 
-[![Class Diagram](./CppND-Capstone-Snake-Game/flow_diagram.png)]
+![Class Diagram](./CppND-Capstone-Snake-Game/flow_diagram.png)
 
 ## Building and Running
-To build, navigate to the directory "snake\CppND-Capstone-Snake-Game\build" and run the command "make".
+To build, navigate to the directory "CppND-Capstone-Snake-Game\build" and run the command "make".
 Then launch the resultant binary with the command "./SnakeGame".
 No additional libraries are needed to run build and run the code.
 
